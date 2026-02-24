@@ -1,0 +1,105 @@
+.shell { display: flex; flex-direction: column; min-height: 100vh; }
+
+.loading {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; color: var(--text2);
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+}
+
+.topbar {
+  height: 56px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  background: linear-gradient(135deg, #fff 30%, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.badgePartner { background: rgba(108,99,255,0.2); color: var(--accent); }
+.badgeSubadmin { background: rgba(255,209,102,0.2); color: var(--accent4); }
+.badgeAdmin { background: rgba(67,232,158,0.2); color: var(--accent3); }
+
+.spacer { flex: 1; }
+
+.userInfo { font-size: 12px; color: var(--text2); }
+.userInfo strong { color: var(--text); }
+
+.logoutBtn {
+  padding: 6px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text2);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.logoutBtn:hover { border-color: var(--accent2); color: var(--accent2); }
+
+.body { display: flex; flex: 1; }
+
+.sidebar {
+  width: 220px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.navSection {
+  font-size: 10px;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px 10px;
+  font-weight: 600;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all .2s;
+  text-decoration: none;
+}
+.navItem:hover { background: var(--surface2); color: var(--text); }
+.navActive { background: rgba(108,99,255,0.15) !important; color: var(--accent) !important; }
+
+.navIcon { width: 18px; text-align: center; flex-shrink: 0; }
+
+.content { flex: 1; padding: 28px; overflow-y: auto; }
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .content { padding: 16px; }
+}
