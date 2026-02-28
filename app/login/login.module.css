@@ -3,9 +3,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse at 20% 50%, #1a1040 0%, var(--bg) 60%),
-    radial-gradient(ellipse at 80% 20%, #0d1f30 0%, transparent 60%);
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, #2d1a6e 100%);
   position: relative;
   overflow: hidden;
 }
@@ -15,66 +13,78 @@
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px);
-  pointer-events: none;
+    repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.03) 50px),
+    repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.03) 50px);
+}
+
+.wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(232,22,42,0.3) 0%, transparent 70%);
+  border-radius: 50%;
 }
 
 .card {
   background: var(--surface);
-  border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 44px 40px;
-  width: 400px;
+  padding: 48px 44px;
+  width: 420px;
   max-width: calc(100vw - 40px);
   position: relative;
-  box-shadow: 0 0 80px rgba(108,99,255,0.15), var(--shadow);
   z-index: 1;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.3);
 }
 
-.card::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 20%;
-  right: 20%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  border-radius: 2px;
+.logoWrap {
+  margin-bottom: 28px;
 }
 
 .logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 30px;
-  background: linear-gradient(135deg, #fff 30%, var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 6px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  color: var(--blue);
+  letter-spacing: 3px;
+  line-height: 1;
 }
 
-.subtitle {
+.logoRed { color: var(--red); }
+
+.tagline {
+  font-size: 12px;
   color: var(--text2);
-  font-size: 13px;
-  margin-bottom: 32px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--blue));
+  border-radius: 2px;
+  margin-bottom: 28px;
 }
 
 .error {
-  background: rgba(255,101,132,0.1);
-  border: 1px solid rgba(255,101,132,0.3);
+  background: var(--red-light);
+  border: 1.5px solid rgba(232,22,42,0.25);
   border-radius: 8px;
-  padding: 9px 13px;
-  color: var(--accent2);
+  padding: 10px 14px;
+  color: var(--red);
   font-size: 13px;
   margin-bottom: 14px;
+  font-weight: 600;
 }
 
 .submitBtn {
   width: 100%;
   justify-content: center;
-  padding: 12px;
-  margin-top: 4px;
+  padding: 13px;
+  margin-top: 8px;
   font-size: 14px;
+  letter-spacing: .5px;
 }
 
 .hint {

@@ -18,46 +18,35 @@ export default function LoginPage() {
     setLoading(true)
     setError('')
     const err = await login(username, password)
-    if (err) {
-      setError(err)
-      setLoading(false)
-    } else {
-      router.replace('/')
-    }
+    if (err) { setError(err); setLoading(false) }
+    else router.replace('/')
   }
 
   return (
     <div className={styles.wrap}>
       <div className={styles.card}>
-        <div className={styles.logo}>PartnerSync</div>
-        <div className={styles.subtitle}>Sistema de gestión de partners</div>
+        <div className={styles.logoWrap}>
+          <div className={styles.logo}>
+            Mony<span className={styles.logoRed}>Mony</span>
+          </div>
+          <div className={styles.tagline}>Sistema de gestión de partners</div>
+        </div>
+        <div className={styles.divider} />
 
         <form onSubmit={handleLogin}>
           <div className="field">
             <label>Usuario</label>
-            <input
-              type="text"
-              placeholder="nombre de usuario"
-              value={username}
-              onChange={e => setUsername(e.target.value)}
-              autoComplete="username"
-            />
+            <input type="text" placeholder="nombre de usuario" value={username}
+              onChange={e => setUsername(e.target.value)} autoComplete="username" />
           </div>
           <div className="field">
             <label>Contraseña</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              autoComplete="current-password"
-            />
+            <input type="password" placeholder="••••••••" value={password}
+              onChange={e => setPassword(e.target.value)} autoComplete="current-password" />
           </div>
-
-          {error && <div className={styles.error}>{error}</div>}
-
+          {error && <div className={styles.error}>⚠ {error}</div>}
           <button type="submit" className={`btn btn-primary ${styles.submitBtn}`} disabled={loading}>
-            {loading ? 'Entrando...' : 'Entrar al sistema →'}
+            {loading ? 'Entrando...' : 'Entrar →'}
           </button>
         </form>
 

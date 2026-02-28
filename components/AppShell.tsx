@@ -6,11 +6,7 @@ import { useAuth } from '@/lib/auth'
 import type { Role } from '@/lib/supabase'
 import styles from './AppShell.module.css'
 
-interface NavItem {
-  href: string
-  label: string
-  icon: string
-}
+interface NavItem { href: string; label: string; icon: string }
 
 const navItems: Record<Role, NavItem[]> = {
   partner: [
@@ -65,20 +61,17 @@ export default function AppShell({
   }, [user, loading, requiredRole, router])
 
   if (loading || !user) {
-    return (
-      <div className={styles.loading}>
-        <span>cargando...</span>
-      </div>
-    )
+    return <div className={styles.loading}>Cargando MonyMony...</div>
   }
 
   const items = navItems[user.role]
 
   return (
     <div className={styles.shell}>
-      {/* Topbar */}
       <header className={styles.topbar}>
-        <span className={styles.logo}>PartnerSync</span>
+        <span className={styles.logo}>
+          Mony<span className={styles.logoRed}>Mony</span> Partners
+        </span>
         <span className={`${styles.badge} ${badgeClass[user.role]}`}>
           {badgeLabel[user.role]}
         </span>
@@ -92,7 +85,6 @@ export default function AppShell({
       </header>
 
       <div className={styles.body}>
-        {/* Sidebar */}
         <nav className={styles.sidebar}>
           <div className={styles.navSection}>
             {{ partner: 'Panel Partner', subadmin: 'Panel SubAdmin', admin: 'Administración' }[user.role]}
@@ -108,11 +100,7 @@ export default function AppShell({
             </Link>
           ))}
         </nav>
-
-        {/* Content */}
-        <main className={styles.content}>
-          {children}
-        </main>
+        <main className={styles.content}>{children}</main>
       </div>
     </div>
   )
